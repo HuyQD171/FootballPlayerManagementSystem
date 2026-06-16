@@ -14,6 +14,8 @@ public abstract class Player {
     private int shirtNumber;
     private double baseSalary;
     private String status;
+    private String number;
+    //23232
 
     private List<AttendanceRecord> attendanceRecords;
     private List<PerformanceRecord> performanceRecords;
