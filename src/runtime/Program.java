@@ -5,6 +5,7 @@ import manager.ReportManager;
 import manager.TrainingManager;
 import manager.MatchManager;
 import util.InputUtil;
+import data.StarPlayer;
 
 public class Program {
 
@@ -213,5 +214,13 @@ public class Program {
 
         } while (choice != 0);
     }
+    private static void manageBonusMultiplier() {
+        System.out.println("\n===== BONUS MULTIPLIER MANAGEMENT =====");
+        System.out.println("Current Bonus Multiplier for Star Player: " 
+                + StarPlayer.getBonusMultiplier() + " VND/point");
+
+        System.out.print("Enter new multiplier (or 0 to keep current): ");
+        double newMultiplier = sc.nextDouble();
+        sc.nextLine(); 
 
 }
