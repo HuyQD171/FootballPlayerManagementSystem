@@ -5,7 +5,7 @@ import manager.ReportManager;
 import manager.TrainingManager;
 import manager.MatchManager;
 import util.InputUtil;
-
+import data.StarPlayer;
 public class Program {
 
     static java.util.Scanner sc = InputUtil.SCANNER;
@@ -193,9 +193,10 @@ public class Program {
             System.out.println("\n===== REPORT MANAGEMENT =====");
             System.out.println("1. Generate Salary Report");
             System.out.println("2. Generate Top Scorer Report");
+            System.out.println("3. Manage Bonus Multiplier");
             System.out.println("0. Back");
 
-            choice = InputUtil.readIntInRange(sc, "Choose: ", 0, 2);
+            choice = InputUtil.readIntInRange(sc, "Choose: ", 0, 3);
 
             switch (choice) {
 
@@ -205,6 +206,9 @@ public class Program {
 
                 case 2:
                     reportManager.generateTopScorerReport(playerManager.getPlayers());
+                    break;
+                 case 3:
+                    manageBonusMultiplier();
                     break;
 
                 case 0:
