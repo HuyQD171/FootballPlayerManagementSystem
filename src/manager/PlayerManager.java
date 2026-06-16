@@ -31,7 +31,16 @@ public class PlayerManager {
 
         String position = InputUtil.readRequiredString(sc, "Enter Position: ");
 
-        int shirtNumber = InputUtil.readIntMin(sc, "Enter Shirt Number: ", 1);
+        int shirtNumber;
+        while(true){
+            shirtNumber = InputUtil.readIntInRange(sc, "Enter Shirt Number (1-99): ", 1, 99);
+            boolean exists=false;
+            for(Player pl: players){
+                if(pl.getShirtNumber()==shirtNumber){ exists=true; break; }
+            }
+            if(!exists) break;
+            System.out.println("Shirt number already exists.");
+        }
 
         double baseSalary = InputUtil.readDoubleMin(sc, "Enter Base Salary: ", 0);
 
@@ -89,8 +98,16 @@ public class PlayerManager {
         String position = InputUtil.readRequiredString(sc,
                 "Enter New Position: ");
 
-        int shirtNumber = InputUtil.readIntMin(sc,
-                "Enter New Shirt Number: ", 1);
+        int shirtNumber;
+        while(true){
+            shirtNumber = InputUtil.readIntInRange(sc,"Enter New Shirt Number (1-99): ",1,99);
+            boolean exists=false;
+            for(Player pl: players){
+                if(!pl.getPlayerId().equalsIgnoreCase(playerId) && pl.getShirtNumber()==shirtNumber){exists=true;break;}
+            }
+            if(!exists) break;
+            System.out.println("Shirt number already exists.");
+        }
 
         double baseSalary = InputUtil.readDoubleMin(sc,
                 "Enter New Base Salary: ", 0);

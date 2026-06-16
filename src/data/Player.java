@@ -112,7 +112,7 @@ public abstract class Player {
     }
 
     public void setShirtNumber(int shirtNumber) {
-        if (shirtNumber > 0) {
+        if (shirtNumber >= 1 && shirtNumber <= 99) {
             this.shirtNumber = shirtNumber;
         }
     }

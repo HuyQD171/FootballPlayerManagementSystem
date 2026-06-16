@@ -6,7 +6,7 @@ import data.Player;
 
 public class ReportManager {
 
-    public void generateSalaryReport(List<Player> players) {
+    public void generateSalaryReport(List<Player> players, int month, int year) {
 
         System.out.println("\n=++= PLAYER SALARY REPORT =++=");
 
@@ -30,7 +30,7 @@ public class ReportManager {
                 if (p.getPerformanceRecords() != null) {
                     for (PerformanceRecord pr : p.getPerformanceRecords()) {
                         if (pr != null) {
-                            totalPoints += pr.calculatePerformancePoints();
+                            if(pr.getMonth()==month && pr.getYear()==year) totalPoints += pr.calculatePerformancePoints();
                         }
                     }
                 }
