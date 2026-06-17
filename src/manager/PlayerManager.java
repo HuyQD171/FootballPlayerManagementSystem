@@ -35,6 +35,20 @@ public class PlayerManager {
 
         double baseSalary = InputUtil.readDoubleMin(sc, "Enter Base Salary: ", 0);
 
+                int shirtNumber;
+        while(true){
+            shirtNumber = InputUtil.readIntInRange(sc, "Enter Shirt Number (1-99): ", 1, 99);
+            boolean exists=false;
+            for(Player pl: players){
+                if(pl.getShirtNumber()==shirtNumber){ exists=true; break; }
+            }
+            if(!exists) break;
+            System.out.println("Shirt number already exists.");
+        }
+
+        double baseSalary = InputUtil.readDoubleMin(sc, "Enter Base Salary: ", 0);
+        
+
         Player player;
         if (playerType.equalsIgnoreCase("Star")) {
             player = new StarPlayer(playerId, "Star", fullName, age,
