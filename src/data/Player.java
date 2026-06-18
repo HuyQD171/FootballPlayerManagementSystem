@@ -101,10 +101,24 @@ public abstract class Player {
         return position;
     }
 
-    public void setPosition(String position) {
-        if (position != null && !position.isEmpty()) {
-            this.position = position;
+       public void setPosition(String position) {
+        if (position != null) {
+            
+            String cleanedPosition = position.trim().toUpperCase();
+            
+           
+            if (cleanedPosition.equals("GK") ||  
+                cleanedPosition.equals("DF") ||  
+                cleanedPosition.equals("MF") ||  
+                cleanedPosition.equals("ST") ||  
+                cleanedPosition.equals("FW")) {  
+                
+                this.position = cleanedPosition;
+                return;
+            }
         }
+       
+        throw new RuntimeException("Invalid position! Please enter: GK, DF, MF, ST, or FW.");
     }
 
     public int getShirtNumber() {

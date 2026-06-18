@@ -102,7 +102,21 @@ public class InputUtil {
             System.out.println(".");
         }
     }
+ public static String readPosition(Scanner sc, String message) {
+        while (true) {
+            String value = readRequiredString(sc, message);
+            String cleaned = value.trim().toUpperCase();
 
+         
+            if (cleaned.equals("GK") || cleaned.equals("DF") || 
+                cleaned.equals("MF") || cleaned.equals("ST") || cleaned.equals("FW")) {
+                return cleaned;
+            }
+
+            
+            System.out.println("Invalid position! Please enter: GK, DF, MF, ST, or FW.");
+        }
+    }
     public static boolean readBoolean(Scanner sc, String message) {
         while (true) {
             String value = readRequiredString(sc, message);

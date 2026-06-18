@@ -67,6 +67,10 @@ public class MatchManager {
             System.out.println("Player not found.");
             return;
         }
+         if (player.getStatus() != null && "Injured".equalsIgnoreCase(player.getStatus().trim())) {
+            System.out.println("Error: Player " + player.getFullName() + " is currently injured and cannot join the match!");
+            return;
+        }
 
         String performanceId = InputUtil.readRequiredString(sc,
                 "Enter Performance ID: ");
