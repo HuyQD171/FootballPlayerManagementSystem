@@ -28,8 +28,9 @@ public class PlayerManager {
         int age = InputUtil.readIntMin(sc, "Enter Age: ", 1);
 
         String nationality = InputUtil.readRequiredString(sc, "Enter Nationality: ");
+       
 
-        String position = InputUtil.readRequiredString(sc, "Enter Position: ");
+        String position = InputUtil.readPosition(sc, "Enter New Position (GK/DF/MF/ST/FW): ");
 
         int shirtNumber = InputUtil.readIntMin(sc, "Enter Shirt Number: ", 1);
 
