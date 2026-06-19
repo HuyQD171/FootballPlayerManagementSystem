@@ -15,6 +15,7 @@ public abstract class Player {
     private double baseSalary;
     private String status;
 
+
     private List<AttendanceRecord> attendanceRecords;
     private List<PerformanceRecord> performanceRecords;
 
