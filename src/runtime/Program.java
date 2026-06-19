@@ -5,6 +5,7 @@ import manager.ReportManager;
 import manager.TrainingManager;
 import manager.MatchManager;
 import util.InputUtil;
+import data.StarPlayer;
 
 public class Program {
 
