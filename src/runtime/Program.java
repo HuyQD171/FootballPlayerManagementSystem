@@ -193,9 +193,10 @@ public class Program {
             System.out.println("\n===== REPORT MANAGEMENT =====");
             System.out.println("1. Generate Salary Report");
             System.out.println("2. Generate Top Scorer Report");
+            System.out.println("3. Manage Bonus Multiplier (Star Player)");
             System.out.println("0. Back");
 
-            choice = InputUtil.readIntInRange(sc, "Choose: ", 0, 2);
+            choice = InputUtil.readIntInRange(sc, "Choose: ", 0, 3);
 
             switch (choice) {
 
@@ -207,11 +208,32 @@ public class Program {
                     reportManager.generateTopScorerReport(playerManager.getPlayers());
                     break;
 
+                case 3:
+                    manageBonusMultiplier();
+                    break;
+
                 case 0:
                     break;
             }
 
         } while (choice != 0);
+    }
+
+    
+    private static void manageBonusMultiplier() {
+        System.out.println("\n===== BONUS MULTIPLIER MANAGEMENT =====");
+        System.out.println("Current Bonus Multiplier for Star Player: " 
+                + StarPlayer.getBonusMultiplier() + " VND/point");
+
+        System.out.print("Enter new multiplier (or 0 to keep current): ");
+        double newMultiplier = sc.nextDouble();
+        sc.nextLine(); 
+
+        if (newMultiplier > 0) {
+            StarPlayer.setBonusMultiplier(newMultiplier);
+        } else {
+            System.out.println("No change was made.");
+        }
     }
 
 }
