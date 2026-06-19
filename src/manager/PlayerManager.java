@@ -34,7 +34,7 @@ public class PlayerManager {
         int shirtNumber = InputUtil.readIntMin(sc, "Enter Shirt Number: ", 1);
 
         double baseSalary = InputUtil.readDoubleMin(sc, "Enter Base Salary: ", 0);
-// so ao
+// so ao da add
                 int shirtNumber;
         while(true){
             shirtNumber = InputUtil.readIntInRange(sc, "Enter Shirt Number (1-99): ", 1, 99);
