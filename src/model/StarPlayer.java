@@ -1,4 +1,4 @@
-package data;
+package model;
 
 public class StarPlayer extends Player {
     private static double bonusMultiplier = 500000;
