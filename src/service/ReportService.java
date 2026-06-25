@@ -115,4 +115,45 @@ public class ReportService {
             return goals;
         }
     }
+
+public List<Player> sortPlayersByPerformanceDesc(List<Player> players) {
+
+    List<Player> sortedPlayers = new ArrayList<>();
+
+    if (players == null) {
+        return sortedPlayers;
+    }
+
+    sortedPlayers.addAll(players);
+
+    Collections.sort(sortedPlayers, new Comparator<Player>() {
+        @Override
+        public int compare(Player p1, Player p2) {
+            return Integer.compare(
+                    calculateTotalPerformancePoints(p2),
+                    calculateTotalPerformancePoints(p1)
+            );
+        }
+    });
+
+    return sortedPlayers;
+}
+
+public int calculateTotalPerformancePoints(Player player) {
+
+    int totalPoints = 0;
+
+    if (player != null && player.getPerformanceRecords() != null) {
+
+        for (PerformanceRecord record : player.getPerformanceRecords()) {
+
+            if (record != null) {
+                totalPoints += record.calculatePerformancePoints();
+            }
+
+        }
+    }
+
+    return totalPoints;
+}
 }
