@@ -139,7 +139,7 @@ public List<Player> sortPlayersByPerformanceDesc(List<Player> players) {
     return sortedPlayers;
 }
 
-private int calculateTotalPerformancePoints(Player player) {
+public int calculateTotalPerformancePoints(Player player) {
 
     int totalPoints = 0;
 
