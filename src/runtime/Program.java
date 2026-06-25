@@ -169,9 +169,10 @@ public class Program {
             System.out.println("1. Generate Salary Report");
             System.out.println("2. Generate Top Scorer Report");
             System.out.println("3. Manage Bonus Multiplier (Star Player)");
+            System.out.println("4. Sort Players by Performance");
             System.out.println("0. Back");
 
-            choice = InputUtil.readIntInRange(sc, "Choose: ", 0, 3);
+            choice = InputUtil.readIntInRange(sc, "Choose: ", 0, 4);
 
             switch (choice) {
                 case 1:
@@ -182,6 +183,9 @@ public class Program {
                     break;
                 case 3:
                     manageBonusMultiplier();
+                    break;
+                     case 4:
+                    reportService.displayPlayersByPerformanceDesc(playerManager.getPlayers());
                     break;
                 case 0:
                     break;
@@ -506,4 +510,24 @@ public class Program {
             System.out.println("No change was made.");
         }
     }
+    public void displayPlayersByPerformanceDesc(List<Player> players) {
+
+    List<Player> sortedPlayers = sortPlayersByPerformanceDesc(players);
+
+    System.out.println("\n===== PLAYERS SORTED BY PERFORMANCE POINTS =====");
+
+    int rank = 1;
+
+    for (Player player : sortedPlayers) {
+
+        int totalPoints = calculateTotalPerformancePoints(player);
+
+        System.out.printf(
+                "%-3d %-20s %-10d\n",
+                rank++,
+                player.getName(),
+                totalPoints
+        );
+    }
+}
 }
